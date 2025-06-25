@@ -40,13 +40,15 @@
             min-height: 100vh;
         }
 
-        /* Navigation Styles - Fixed DHTML Menu Look with Working Dropdowns */
+        /* Fixed Navigation Styles - Works Across All Resolutions */
         .nav-container {
             position: absolute;
             bottom: 0;
-            left: 110px;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: #C23404;
             width: 500px;
+            max-width: 90%;
             z-index: 1000;
         }
 
@@ -56,7 +58,6 @@
             margin: 0;
             padding: 0;
             background-color: #C23404;
-            border: 0px solid #C23404;
         }
 
         .main-nav > li {
@@ -74,7 +75,6 @@
             font-size: 7pt;
             font-weight: bold;
             background-color: #C23404;
-            border-right: 0px solid #C23404;
             transition: all 0.3s;
             height: 15px;
             line-height: 5px;
@@ -85,7 +85,7 @@
             background-color: #C23404;
         }
 
-        /* Dropdown Menus - Fixed Functionality */
+        /* Dropdown Menus */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -117,7 +117,6 @@
             background-color: #C23404 !important;
             text-align: center;
             padding: 5px 2px;
-            border-bottom: 0px solid #2B2B2B;
             font-size: 7pt;
             height: 25px;
             line-height: 15px;
@@ -143,15 +142,11 @@
             margin: 10px;
             cursor: pointer;
             width: calc(100% - 20px);
+            position: absolute;
+            bottom: 0;
         }
 
         /* Content Container */
-        .content-wrapper {
-            background-color: #756748;
-            width: 100%;
-            min-height: 100vh;
-        }
-
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -168,61 +163,12 @@
             font-weight: bold;
         }
 
-        /* Video Section - Updated with YouTube */
-        .video-section {
+        /* Sidebar for Your Say only */
+        .sidebar {
             width: 195px;
             float: right;
             margin-top: 35px;
             margin-right: 20px;
-        }
-
-        .video-container {
-            border: 0;
-            cellpadding: 5;
-            cellspacing: 0;
-            width: 195px;
-        }
-
-        .video-header {
-            background-color: #B1904B;
-            border: 1px solid #B1904B;
-            padding: 5px;
-            color: #000000;
-            font-weight: bold;
-            font-size: 7pt;
-        }
-
-        .video-content {
-            background-color: #867653;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .video-placeholder {
-            background-color: #867653;
-            border: 2px solid #999999;
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .video-placeholder:hover {
-            background-color: #756748;
-            transform: scale(1.02);
-        }
-
-        .video-controls {
-            background-color: #B1904B;
-            border: 1px solid #B1904B;
-            padding: 5px;
-        }
-
-        .video-controls a {
-            color: #000000;
-            text-decoration: none;
-            font-size: 7pt;
         }
 
         /* Content Section */
@@ -237,6 +183,17 @@
             font-size: 11px;
             text-align: justify;
             margin-bottom: 10px;
+        }
+
+        /* YouTube Video Embed */
+        .youtube-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .youtube-container iframe {
+            border: 2px solid #999999;
+            border-radius: 5px;
         }
 
         /* Summary Tables - Preserving Original Design */
@@ -342,11 +299,6 @@
             margin-bottom: 20px;
         }
 
-        .yoursay-button img {
-            border: 1px solid #000000;
-            cursor: pointer;
-        }
-
         .comment-item {
             margin-bottom: 20px;
         }
@@ -355,9 +307,10 @@
             background-color: #B1904B;
             border: 1px solid #B1904B;
             padding: 5px 15px;
-            height: 16px;
-            line-height: 16px;
             font-size: 7pt;
+            height: auto;
+            min-height: 16px;
+            line-height: 16px;
         }
 
         .comment-content {
@@ -378,6 +331,8 @@
             padding: 5px;
             font-weight: bold;
             font-size: 7pt;
+            height: auto;
+            min-height: 16px;
         }
 
         .sidebar-content {
@@ -400,41 +355,6 @@
             font-size: 7pt;
         }
 
-        /* Sponsors Section */
-        .sponsors-section {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .sponsors-section h3 {
-            font-family: Verdana;
-            font-size: 12pt;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .sponsors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .sponsor-item {
-            text-align: center;
-        }
-
-        .sponsor-item img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .copy {
-            font-family: Verdana;
-            font-size: 10px;
-            color: #000000;
-        }
-
         /* Footer */
         .footerbackground {
             background-color: #756748;
@@ -442,26 +362,23 @@
         }
 
         .footer-content {
-            text-align: right;
+            text-align: center;
             color: #000000;
-        }
-
-        .footer-content ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
         }
 
         .footer-content .copy {
             font-size: 10px;
         }
 
-        .footer-content a {
-            color: #000000;
-            text-decoration: none;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container {
+                left: 110px;
+                transform: none;
+                width: calc(100% - 130px);
+            }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .headerbackground {
                 background-size: contain;
@@ -471,6 +388,7 @@
             .nav-container {
                 position: static;
                 left: auto;
+                transform: none;
                 width: 100%;
                 margin: 0;
                 display: none;
@@ -482,6 +400,7 @@
 
             .mobile-nav-toggle {
                 display: block;
+                position: static;
             }
 
             .main-nav {
@@ -508,7 +427,7 @@
                 margin-bottom: 5px;
             }
 
-            .video-section {
+            .sidebar {
                 float: none;
                 width: 100%;
                 margin: 20px 0;
@@ -531,10 +450,6 @@
             h1 {
                 font-size: 12pt;
             }
-
-            .sponsors-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
         }
 
         @media (max-width: 480px) {
@@ -548,6 +463,11 @@
             .polaroidbordersm {
                 margin-right: 0;
                 margin-bottom: 10px;
+            }
+
+            .youtube-container iframe {
+                width: 100%;
+                height: 200px;
             }
         }
 
@@ -563,10 +483,6 @@
 
         .noborder {
             border: none;
-        }
-
-        .starburst {
-            margin-left: 5px;
         }
     </style>
 </head>
@@ -641,29 +557,10 @@
         <tr class="mainbackground">
             <td valign="top" width="100%" height="100%">
                 <div class="main-content">
-                    <!-- Video Section (Right Sidebar) -->
-                    <div class="video-section">
-                        <div class="video-container">
-                            <div class="video-header">
-                                <img src="https://africanodyssey.github.io/media/starburst-l.gif" alt="star" style="margin-right: 5px;"><strong>1st Jan - Hotel Lobby</strong>
-                            </div>
-                            <div class="video-content">
-                                <div class="video-placeholder" onclick="window.open('https://www.youtube.com/watch?v=IfRzIHc3tg4', '_blank')">
-                                    <div style="color: white; font-weight: bold;">
-                                        ▶ PLAY VIDEO<br><br>
-                                        Hotel Lobby<br><br>
-                                        <small>Click to watch on YouTube</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="video-controls">
-                                <a href="#" style="color:#000">previous video</a>
-                                <span style="float: right;"><a href="#" style="color:#000">next video</a></span>
-                            </div>
-                        </div>
-
+                    <!-- Sidebar (Right) - Only Favourite Your Say -->
+                    <div class="sidebar">
                         <!-- Favourite Your Say Box -->
-                        <div class="sidebar-box" style="margin-top: 20px;">
+                        <div class="sidebar-box">
                             <div class="sidebar-header">
                                 <strong>Favourite Your Say! - Mikeyo</strong>
                             </div>
@@ -672,19 +569,6 @@
                             </div>
                             <div class="sidebar-footer">
                                 <a href="all-your-says.html" style="color:#000">read all your says</a>
-                            </div>
-                        </div>
-
-                        <!-- Press Release Box -->
-                        <div class="sidebar-box">
-                            <div class="sidebar-header">
-                                <strong>Press Release - May 08!</strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://africanodyssey.github.io/media/starburst.gif" alt="star">
-                            </div>
-                            <div class="sidebar-content">
-                                The african odyssey press machine got some new sprockets and kicked into action and its a mighty fine machine! Check out our press machine release using the link below!
-                            </div>
-                            <div class="sidebar-footer">
-                                <a href="https://africanodyssey.github.io/media/Press_Release_Full.pdf" style="color:#000" target="_blank">View the Press Release!</a>
                             </div>
                         </div>
                     </div>
@@ -700,20 +584,11 @@
                                 No corporate sponsor, no camera crew, no changing room, no expensive equipment, just raw adventure New Zealand style. Come and live vicariously at the premier screening of the African Odyssey!! <a href="what-is-odyssey.html" title="Find out more about The African Odyssey">Find out more about the African Odyssey here...</a>
                                 </p>
                                 
-                                <strong>
-                                    <a href="sample-videos.html" target="_blank">
-                                        <img height="35" border="0" width="35" title="New Videos" alt="New Videos" src="https://africanodyssey.github.io/media/star.gif">View some of our Sample Teaser Videos here!<br>
-                                    </a><br>
-                                    <a class="noborder" href="https://www.youtube.com/watch?v=IfRzIHc3tg4" target="_blank">
-                                        <img border="0" class="noborder" title="Burning Video" style="border: 2px solid #999999" alt="Burning Video" src="https://africanodyssey.github.io/media/Burning_preview.gif">
-                                    </a>
-                                    <a class="noborder" href="sample-videos.html" target="_blank">
-                                        <img border="0" class="noborder" title="See Me Video" style="border: 2px solid #999999" alt="See Me Video" src="https://africanodyssey.github.io/media/Seeme_preview.gif">
-                                    </a>
-                                    <a class="noborder" href="sample-videos.html" target="_blank">
-                                        <img border="0" class="noborder" title="Cant Run Video" style="border: 2px solid #999999" alt="Cant Run Video" src="https://africanodyssey.github.io/media/Cantrun_preview.gif">
-                                    </a>
-                                </strong>
+                                <!-- YouTube Video Embed -->
+                                <div class="youtube-container">
+                                    <iframe width="420" height="315" src="https://www.youtube.com/embed/IfRzIHc3tg4" frameborder="0" allowfullscreen></iframe>
+                                    <br><strong>Hotel Lobby - Sample from the African Odyssey Documentary</strong>
+                                </div>
                             </div>
                             <h3><br></h3>
                             <div align="center">
@@ -909,7 +784,7 @@
                             <div class="yoursay-button">
                                 <div align="left"><strong>To leave a note for the<br> boys click Your Say!</strong><br>
                                 <a href="javascript:void(0)" onclick="alert('Comment form would open here')" class="noborder">
-                                    <img class="noborder" border="1" src="https://africanodyssey.github.io/media/yoursay.jpg" alt="Your Say">
+                                    <img class="noborder" border="1" src="https://africanodyssey.github.io/yoursay.jpg" alt="Your Say">
                                 </a></div>
                             </div>
 
@@ -948,45 +823,13 @@
 
                     <!-- Clear floats -->
                     <div style="clear: both;"></div>
-
-                    <!-- Sponsors Section -->
-                    <div class="sponsors-section">
-                        <h3>Main Sponsors</h3>
-                        <div class="sponsors-grid">
-                            <div class="sponsor-item">
-                                <a href="#" target="_blank" class="copy">Film Production Supported by NZ Greenroom Productions<br>
-                                <img class="copy" src="https://africanodyssey.github.io/nzgreen.jpg" alt="NZ Green"></a>
-                            </div>
-                            <div class="sponsor-item">
-                                <a href="#" target="_blank" class="copy">Adventure products supplied by Whakatane Great Outdoors Centre<br>
-                                <img class="copy" src="https://africanodyssey.github.io/ourdoorscentre.jpg" alt="Outdoors Centre"></a>
-                            </div>
-                            <div class="sponsor-item">
-                                <a href="#" target="_blank" class="copy">Jonathans Camera and Video<br>
-                                <img class="copy" src="https://africanodyssey.github.io/jonathanscamera.jpg" alt="Jonathans Camera"></a>
-                            </div>
-                            <div class="sponsor-item">
-                                <a href="#" target="_blank" class="copy">Motorcycle Parts supplied by Bay Honda<br>
-                                <img class="copy" src="https://africanodyssey.github.io/gnLogo.gif" alt="Bay Honda"></a>
-                            </div>
-                            <div class="sponsor-item">
-                                <a href="#" target="_blank" class="copy">Libyan travel Arrangements by Fessano-W-Tours<br>
-                                <img class="copy" src="https://africanodyssey.github.io/Lybia.jpg" alt="Fessano Tours"></a>
-                            </div>
-                        </div>
-                        
-                        <h3>African Odyssey Website development and maintenance<br><br>
-                        <a href="#" class="copy"><img class="copy" width="150" height="38" src="https://africanodyssey.github.io/FM-Logo.gif" alt="Fenomenal Media"></a></h3>
-                    </div>
                 </div>
             </td>
         </tr>
         <tr class="footerbackground">
             <td class="footer-content">
                 <br>
-                <ul style="list-style-type:none;">
-                    <li class="copy">site design by <a href="#"><img class="copy" src="https://africanodyssey.github.io/media/FM.gif" align="absbottom" alt="Fenomenal Media"></a><a href="#" class="copy">&nbsp;©</a>&nbsp;2008&nbsp;</li>
-                </ul>
+                <p class="copy">African Odyssey © 2008</p>
             </td>
         </tr>
     </table>
