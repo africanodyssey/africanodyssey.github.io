@@ -23,11 +23,15 @@
             padding: 0;
         }
 
-        /* Header Background */
+        /* Header Background with Logo */
         .headerbackground {
-            background-color: #756748;
+            background-image: url('https://africanodyssey.github.io/header.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
             height: 162px;
             width: 100%;
+            position: relative;
         }
 
         /* Main Background */
@@ -36,14 +40,13 @@
             min-height: 100vh;
         }
 
-        /* Navigation Styles - Preserving Original DHTML Menu Look */
+        /* Navigation Styles - Fixed DHTML Menu Look with Working Dropdowns */
         .nav-container {
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            left: 110px;
             background-color: #C23404;
-            width: 100%;
-            max-width: 500px;
-            margin-left: 110px;
-            margin-top: -60px;
+            width: 500px;
             z-index: 1000;
         }
 
@@ -61,7 +64,7 @@
             position: relative;
         }
 
-        .main-nav a {
+        .main-nav > li > a {
             display: block;
             color: #F1F1F1;
             text-decoration: none;
@@ -73,14 +76,16 @@
             background-color: #C23404;
             border-right: 0px solid #C23404;
             transition: all 0.3s;
+            height: 15px;
+            line-height: 5px;
         }
 
-        .main-nav a:hover {
+        .main-nav > li > a:hover {
             color: #2B2B2B;
             background-color: #C23404;
         }
 
-        /* Dropdown Menus */
+        /* Dropdown Menus - Fixed Functionality */
         .dropdown {
             position: absolute;
             top: 100%;
@@ -89,14 +94,25 @@
             border: 1px solid #2B2B2B;
             min-width: 155px;
             z-index: 1001;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .main-nav li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li {
             display: block;
         }
 
         .dropdown a {
+            display: block;
             color: #FFFFFF !important;
             background-color: #C23404 !important;
             text-align: center;
@@ -105,6 +121,8 @@
             font-size: 7pt;
             height: 25px;
             line-height: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
         }
 
         .dropdown a:hover {
@@ -122,9 +140,9 @@
             font-family: Verdana;
             font-size: 7pt;
             font-weight: bold;
-            margin-left: 110px;
-            margin-top: -60px;
+            margin: 10px;
             cursor: pointer;
+            width: calc(100% - 20px);
         }
 
         /* Content Container */
@@ -150,7 +168,7 @@
             font-weight: bold;
         }
 
-        /* Video Section - Preserving Original Style */
+        /* Video Section - Updated with YouTube */
         .video-section {
             width: 195px;
             float: right;
@@ -182,9 +200,17 @@
 
         .video-placeholder {
             background-color: #867653;
+            border: 2px solid #999999;
             color: white;
-            padding: 40px 20px;
+            padding: 20px 10px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .video-placeholder:hover {
+            background-color: #756748;
+            transform: scale(1.02);
         }
 
         .video-controls {
@@ -437,34 +463,49 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .headerbackground {
+                background-size: contain;
+                background-position: center;
+            }
+
             .nav-container {
-                margin-left: 10px;
-                max-width: calc(100% - 20px);
+                position: static;
+                left: auto;
+                width: 100%;
+                margin: 0;
+                display: none;
+            }
+
+            .nav-container.active {
+                display: block;
             }
 
             .mobile-nav-toggle {
                 display: block;
-                margin-left: 10px;
-                width: calc(100% - 20px);
             }
 
             .main-nav {
-                display: none;
                 flex-direction: column;
-            }
-
-            .main-nav.active {
-                display: flex;
             }
 
             .main-nav > li {
                 flex: none;
             }
 
+            .main-nav > li > a {
+                text-align: left;
+                padding: 10px 15px;
+                height: auto;
+                line-height: normal;
+            }
+
             .dropdown {
                 position: static;
-                display: block;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
                 margin-left: 20px;
+                margin-bottom: 5px;
             }
 
             .video-section {
@@ -533,11 +574,12 @@
     <table width="100%" height="100%">
         <tr class="headerbackground">
             <td width="100%" height="162" valign="top">
-                <div style="height: 30px;">&nbsp;</div>
-                <!-- Navigation -->
+                <!-- Mobile Navigation Toggle -->
                 <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰ MENU</button>
-                <div class="nav-container">
-                    <ul class="main-nav" id="main-nav">
+                
+                <!-- Navigation -->
+                <div class="nav-container" id="nav-container">
+                    <ul class="main-nav">
                         <li>
                             <a href="index.html">HOME</a>
                         </li>
@@ -603,17 +645,15 @@
                     <div class="video-section">
                         <div class="video-container">
                             <div class="video-header">
-                                <img src="media/starburst-l.gif" alt="star" style="margin-right: 5px;"><strong>1st Jan - Hotel Lobby</strong>
+                                <img src="https://africanodyssey.github.io/media/starburst-l.gif" alt="star" style="margin-right: 5px;"><strong>1st Jan - Hotel Lobby</strong>
                             </div>
                             <div class="video-content">
-                                <div class="video-placeholder">
-                                    <a href="https://www.youtube.com/watch?v=IfRzIHc3tg4" target="_blank" style="color: white; text-decoration: none;">
-                                        <div style="border: 2px solid #999; background: #555; padding: 20px; color: white;">
-                                            ▶ Watch Video<br>
-                                            Hotel Lobby<br>
-                                            (Click to open YouTube)
-                                        </div>
-                                    </a>
+                                <div class="video-placeholder" onclick="window.open('https://www.youtube.com/watch?v=IfRzIHc3tg4', '_blank')">
+                                    <div style="color: white; font-weight: bold;">
+                                        ▶ PLAY VIDEO<br><br>
+                                        Hotel Lobby<br><br>
+                                        <small>Click to watch on YouTube</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="video-controls">
@@ -638,13 +678,13 @@
                         <!-- Press Release Box -->
                         <div class="sidebar-box">
                             <div class="sidebar-header">
-                                <strong>Press Release - May 08!</strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/starburst.gif" alt="star">
+                                <strong>Press Release - May 08!</strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://africanodyssey.github.io/media/starburst.gif" alt="star">
                             </div>
                             <div class="sidebar-content">
                                 The african odyssey press machine got some new sprockets and kicked into action and its a mighty fine machine! Check out our press machine release using the link below!
                             </div>
                             <div class="sidebar-footer">
-                                <a href="media/Press_Release_Full.pdf" style="color:#000" target="_blank">View the Press Release!</a>
+                                <a href="https://africanodyssey.github.io/media/Press_Release_Full.pdf" style="color:#000" target="_blank">View the Press Release!</a>
                             </div>
                         </div>
                     </div>
@@ -662,16 +702,16 @@
                                 
                                 <strong>
                                     <a href="sample-videos.html" target="_blank">
-                                        <img height="35" border="0" width="35" title="New Videos" alt="New Videos" src="media/star.gif">View some of our Sample Teaser Videos here!<br>
+                                        <img height="35" border="0" width="35" title="New Videos" alt="New Videos" src="https://africanodyssey.github.io/media/star.gif">View some of our Sample Teaser Videos here!<br>
                                     </a><br>
                                     <a class="noborder" href="https://www.youtube.com/watch?v=IfRzIHc3tg4" target="_blank">
-                                        <img border="0" class="noborder" title="Burning Video" style="border: 2px solid #999999" alt="Burning Video" src="media/Burning_preview.gif">
+                                        <img border="0" class="noborder" title="Burning Video" style="border: 2px solid #999999" alt="Burning Video" src="https://africanodyssey.github.io/media/Burning_preview.gif">
                                     </a>
                                     <a class="noborder" href="sample-videos.html" target="_blank">
-                                        <img border="0" class="noborder" title="See Me Video" style="border: 2px solid #999999" alt="See Me Video" src="media/Seeme_preview.gif">
+                                        <img border="0" class="noborder" title="See Me Video" style="border: 2px solid #999999" alt="See Me Video" src="https://africanodyssey.github.io/media/Seeme_preview.gif">
                                     </a>
                                     <a class="noborder" href="sample-videos.html" target="_blank">
-                                        <img border="0" class="noborder" title="Cant Run Video" style="border: 2px solid #999999" alt="Cant Run Video" src="media/Cantrun_preview.gif">
+                                        <img border="0" class="noborder" title="Cant Run Video" style="border: 2px solid #999999" alt="Cant Run Video" src="https://africanodyssey.github.io/media/Cantrun_preview.gif">
                                     </a>
                                 </strong>
                             </div>
@@ -688,7 +728,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/Windy road 3.jpg" alt="New Zealand">
+                                                <img class="noborder" src="https://africanodyssey.github.io/Windy road 3.jpg" alt="New Zealand">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -708,7 +748,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/IMG_0428 (Large).JPG" alt="New Zealand">
+                                                <img class="noborder" src="https://africanodyssey.github.io/IMG_0428 (Large).JPG" alt="New Zealand">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -730,7 +770,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/IMG_6261 (Small)[1].JPG" alt="New Zealand">
+                                                <img class="noborder" src="https://africanodyssey.github.io/IMG_6261 (Small)[1].JPG" alt="New Zealand">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -750,7 +790,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/African Odyssey - Malaysia 018 (Small).jpg" alt="Malaysia">
+                                                <img class="noborder" src="https://africanodyssey.github.io/African Odyssey - Malaysia 018 (Small).jpg" alt="Malaysia">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -767,13 +807,12 @@
                                 </div>
                             </div>
 
-                            <!-- Continue with more country rows... I'll add a few more key ones -->
                             <div class="summary-row">
                                 <div class="summary-table">
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/Picture 052 (Small).jpg" alt="South Africa">
+                                                <img class="noborder" src="https://africanodyssey.github.io/Picture 052 (Small).jpg" alt="South Africa">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -793,7 +832,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/Picture 051 (Small).jpg" alt="South Africa">
+                                                <img class="noborder" src="https://africanodyssey.github.io/Picture 051 (Small).jpg" alt="South Africa">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -810,13 +849,12 @@
                                 </div>
                             </div>
 
-                            <!-- Add final journey entries -->
                             <div class="summary-row">
                                 <div class="summary-table">
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/IMG_9072 (Small).JPG" alt="England">
+                                                <img class="noborder" src="https://africanodyssey.github.io/IMG_9072 (Small).JPG" alt="England">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -836,7 +874,7 @@
                                     <div class="summary-header">
                                         <div class="polaroidbordersm">
                                             <div class="polaroidsm">
-                                                <img class="noborder" src="files/Affrican Od Prem 2008  1785.jpg" alt="World Premier">
+                                                <img class="noborder" src="https://africanodyssey.github.io/Affrican Od Prem 2008  1785.jpg" alt="World Premier">
                                             </div>
                                         </div>
                                         <div class="summary-title">
@@ -871,7 +909,7 @@
                             <div class="yoursay-button">
                                 <div align="left"><strong>To leave a note for the<br> boys click Your Say!</strong><br>
                                 <a href="javascript:void(0)" onclick="alert('Comment form would open here')" class="noborder">
-                                    <img class="noborder" border="1" src="media/yoursay.jpg" alt="Your Say">
+                                    <img class="noborder" border="1" src="https://africanodyssey.github.io/media/yoursay.jpg" alt="Your Say">
                                 </a></div>
                             </div>
 
@@ -917,28 +955,28 @@
                         <div class="sponsors-grid">
                             <div class="sponsor-item">
                                 <a href="#" target="_blank" class="copy">Film Production Supported by NZ Greenroom Productions<br>
-                                <img class="copy" src="files/nzgreen.jpg" alt="NZ Green"></a>
+                                <img class="copy" src="https://africanodyssey.github.io/nzgreen.jpg" alt="NZ Green"></a>
                             </div>
                             <div class="sponsor-item">
                                 <a href="#" target="_blank" class="copy">Adventure products supplied by Whakatane Great Outdoors Centre<br>
-                                <img class="copy" src="files/ourdoorscentre.jpg" alt="Outdoors Centre"></a>
+                                <img class="copy" src="https://africanodyssey.github.io/ourdoorscentre.jpg" alt="Outdoors Centre"></a>
                             </div>
                             <div class="sponsor-item">
                                 <a href="#" target="_blank" class="copy">Jonathans Camera and Video<br>
-                                <img class="copy" src="files/jonathanscamera.jpg" alt="Jonathans Camera"></a>
+                                <img class="copy" src="https://africanodyssey.github.io/jonathanscamera.jpg" alt="Jonathans Camera"></a>
                             </div>
                             <div class="sponsor-item">
                                 <a href="#" target="_blank" class="copy">Motorcycle Parts supplied by Bay Honda<br>
-                                <img class="copy" src="files/gnLogo.gif" alt="Bay Honda"></a>
+                                <img class="copy" src="https://africanodyssey.github.io/gnLogo.gif" alt="Bay Honda"></a>
                             </div>
                             <div class="sponsor-item">
                                 <a href="#" target="_blank" class="copy">Libyan travel Arrangements by Fessano-W-Tours<br>
-                                <img class="copy" src="files/Lybia.JPG" alt="Fessano Tours"></a>
+                                <img class="copy" src="https://africanodyssey.github.io/Lybia.JPG" alt="Fessano Tours"></a>
                             </div>
                         </div>
                         
                         <h3>African Odyssey Website development and maintenance<br><br>
-                        <a href="#" class="copy"><img class="copy" width="150" height="38" src="files/FM-Logo.gif" alt="Fenomenal Media"></a></h3>
+                        <a href="#" class="copy"><img class="copy" width="150" height="38" src="https://africanodyssey.github.io/FM-Logo.gif" alt="Fenomenal Media"></a></h3>
                     </div>
                 </div>
             </td>
@@ -947,7 +985,7 @@
             <td class="footer-content">
                 <br>
                 <ul style="list-style-type:none;">
-                    <li class="copy">site design by <a href="#"><img class="copy" src="media/FM.gif" align="absbottom" alt="Fenomenal Media"></a><a href="#" class="copy">&nbsp;©</a>&nbsp;2008&nbsp;</li>
+                    <li class="copy">site design by <a href="#"><img class="copy" src="https://africanodyssey.github.io/media/FM.gif" align="absbottom" alt="Fenomenal Media"></a><a href="#" class="copy">&nbsp;©</a>&nbsp;2008&nbsp;</li>
                 </ul>
             </td>
         </tr>
@@ -955,18 +993,35 @@
 
     <script>
         function toggleMobileNav() {
-            const nav = document.getElementById('main-nav');
-            nav.classList.toggle('active');
+            const navContainer = document.getElementById('nav-container');
+            navContainer.classList.toggle('active');
         }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            const nav = document.getElementById('main-nav');
+            const navContainer = document.getElementById('nav-container');
             const toggle = document.querySelector('.mobile-nav-toggle');
             
-            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-                nav.classList.remove('active');
+            if (!navContainer.contains(event.target) && !toggle.contains(event.target)) {
+                navContainer.classList.remove('active');
             }
+        });
+
+        // Ensure dropdowns work on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownParents = document.querySelectorAll('.main-nav > li > a');
+            
+            dropdownParents.forEach(function(parent) {
+                parent.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = parent.nextElementSibling;
+                        if (dropdown && dropdown.classList.contains('dropdown')) {
+                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
