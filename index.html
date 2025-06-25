@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>African Odyssey: Four Whakatane Fellas embark on a motorcycle adventure from Cape Town to London</title>
-    <meta name="description" content="African Odyssey - Follow four New Zealand motorcyclists on their epic journey from Cape Town to London">
-    <meta name="keywords" content="africa, odyssey, motorcycle, honda, yamaha, new zealand, adventure, travel, documentary">
+    <title>African odyssey: Four Whakatane Fellas embark on a simple motorcycle adventure from South Africa to England</title>
+    <meta name="description" content="African Odyssey">
+    <meta name="keywords" content="africa, odyssey, motorcycle, honda, yamaha, new zealand, auckland, wellington, christchurch, dunedin, hamilton, tauranga, whakatane, taupo, new plymouth, hastings, gisborne, palmerston north, wanganui, nelson, west coast, wanaka, queenstown, invercargill">
     
     <style>
         * {
@@ -15,337 +15,383 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            background-color: #756748;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #C23404 0%, #B1904B 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
+        /* Header Background */
+        .headerbackground {
+            background-color: #756748;
+            height: 162px;
+            width: 100%;
+        }
+
+        /* Main Background */
+        .mainbackground {
+            background-color: #756748;
+            min-height: 100vh;
+        }
+
+        /* Navigation Styles - Preserving Original DHTML Menu Look */
+        .nav-container {
+            position: relative;
+            background-color: #C23404;
+            width: 100%;
+            max-width: 500px;
+            margin-left: 110px;
+            margin-top: -60px;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Navigation */
-        .nav {
+        .main-nav {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            background-color: #C23404;
+            border: 0px solid #C23404;
         }
 
-        .nav > li {
+        .main-nav > li {
+            flex: 1;
             position: relative;
         }
 
-        .nav a {
-            color: white;
+        .main-nav a {
+            display: block;
+            color: #F1F1F1;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-weight: 500;
+            padding: 5px 2px;
+            text-align: center;
+            font-family: Verdana;
+            font-size: 7pt;
+            font-weight: bold;
+            background-color: #C23404;
+            border-right: 0px solid #C23404;
+            transition: all 0.3s;
         }
 
-        .nav a:hover {
-            background-color: rgba(255,255,255,0.1);
+        .main-nav a:hover {
+            color: #2B2B2B;
+            background-color: #C23404;
         }
 
-        /* Dropdown menus */
+        /* Dropdown Menus */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            background: #2B2B2B;
-            min-width: 200px;
-            border-radius: 5px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: #2B2B2B;
+            border: 1px solid #2B2B2B;
+            min-width: 155px;
+            z-index: 1001;
+            display: none;
         }
 
-        .nav li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .main-nav li:hover .dropdown {
+            display: block;
         }
 
         .dropdown a {
-            display: block;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #FFFFFF !important;
+            background-color: #C23404 !important;
+            text-align: center;
+            padding: 5px 2px;
+            border-bottom: 0px solid #2B2B2B;
+            font-size: 7pt;
+            height: 25px;
+            line-height: 15px;
         }
 
         .dropdown a:hover {
-            background-color: #C23404;
+            color: #2B2B2B !important;
+            background-color: #C23404 !important;
         }
 
-        /* Mobile menu toggle */
-        .menu-toggle {
+        /* Mobile Navigation Toggle */
+        .mobile-nav-toggle {
             display: none;
-            flex-direction: column;
+            background-color: #C23404;
+            color: #F1F1F1;
+            border: none;
+            padding: 10px;
+            font-family: Verdana;
+            font-size: 7pt;
+            font-weight: bold;
+            margin-left: 110px;
+            margin-top: -60px;
             cursor: pointer;
-            padding: 0.5rem;
         }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: 0.3s;
+        /* Content Container */
+        .content-wrapper {
+            background-color: #756748;
+            width: 100%;
+            min-height: 100vh;
         }
 
-        /* Main Content */
-        .container {
+        .main-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 20px;
+            background-color: #756748;
         }
 
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
+        /* Page Title */
+        h1 {
+            font-family: Verdana;
+            font-size: 14pt;
+            color: #000000;
+            margin: 20px 0;
+            font-weight: bold;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #C23404;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            text-align: justify;
-        }
-
+        /* Video Section - Preserving Original Style */
         .video-section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
+            width: 195px;
+            float: right;
+            margin-top: 35px;
+            margin-right: 20px;
         }
 
         .video-container {
-            max-width: 600px;
-            margin: 0 auto;
+            border: 0;
+            cellpadding: 5;
+            cellspacing: 0;
+            width: 195px;
+        }
+
+        .video-header {
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 5px;
+            color: #000000;
+            font-weight: bold;
+            font-size: 7pt;
+        }
+
+        .video-content {
+            background-color: #867653;
+            text-align: center;
+            padding: 10px;
         }
 
         .video-placeholder {
-            background: #867653;
+            background-color: #867653;
             color: white;
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
-
-        /* Country Grid */
-        .countries-section h2 {
+            padding: 40px 20px;
             text-align: center;
-            color: #C23404;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
         }
 
-        .countries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .video-controls {
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 5px;
         }
 
-        .country-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .video-controls a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 7pt;
         }
 
-        .country-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        /* Content Section */
+        .content-section {
+            margin-right: 300px;
+            padding-right: 20px;
         }
 
-        .country-header {
-            background: linear-gradient(135deg, #C23404 0%, #B1904B 100%);
-            color: white;
-            padding: 1rem;
+        /* Preserve original paragraph styling */
+        p {
+            font-family: Verdana;
+            font-size: 11px;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+        /* Summary Tables - Preserving Original Design */
+        .summary-container {
+            width: 96%;
+            margin: 20px auto;
+        }
+
+        .summary-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary-table {
+            flex: 1;
+            background-color: #ffffff;
+            border: 1px solid #B1904B;
+        }
+
+        .summary-header {
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 10px;
+            height: 70px;
             display: flex;
             align-items: center;
-            gap: 1rem;
         }
 
-        .country-image {
+        .polaroidbordersm {
+            border: 2px solid #999999;
+            margin-right: 10px;
+        }
+
+        .polaroidsm img {
             width: 60px;
             height: 45px;
-            object-fit: cover;
-            border-radius: 5px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: none;
+            display: block;
         }
 
-        .country-title {
+        .summary-title {
             flex: 1;
         }
 
-        .country-title h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .country-title .subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .country-content {
-            padding: 1.5rem;
-        }
-
-        .country-date {
-            color: #C23404;
+        .titles {
+            font-family: Verdana;
+            font-size: 11px;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            color: #000000;
         }
 
-        .country-location {
+        .smtitle {
+            font-weight: normal;
+        }
+
+        .smtitle a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .summary-content {
+            background-color: #867653;
+            padding: 15px;
+            color: #000000;
+        }
+
+        .summary-content h3 {
+            font-family: Verdana;
+            font-size: 11px;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 5px;
         }
 
-        .country-description {
-            color: #666;
-            text-align: justify;
-            margin-bottom: 1rem;
+        .summary-content strong {
+            font-weight: bold;
         }
 
-        .read-more {
-            color: #C23404;
+        .summary-content a {
+            color: #000000;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .read-more:hover {
-            color: #B1904B;
         }
 
         /* Map Section */
         .map-section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 30px 0;
         }
 
         .map-section h3 {
-            color: #C23404;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .map-container {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        /* Comments Section */
-        .comments-section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .comments-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .your-say-btn {
-            background: linear-gradient(135deg, #C23404 0%, #B1904B 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
+            font-family: Verdana;
+            font-size: 12pt;
             font-weight: bold;
-            transition: transform 0.3s;
+            margin-bottom: 20px;
         }
 
-        .your-say-btn:hover {
-            transform: scale(1.05);
+        /* Your Say Section */
+        .yoursay-section {
+            margin: 30px 0;
         }
 
-        .comment {
-            border-left: 4px solid #C23404;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: #f9f9f9;
-            border-radius: 0 5px 5px 0;
+        .yoursay-button {
+            margin-bottom: 20px;
+        }
+
+        .yoursay-button img {
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+
+        .comment-item {
+            margin-bottom: 20px;
         }
 
         .comment-header {
-            color: #C23404;
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 5px 15px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 7pt;
+        }
+
+        .comment-content {
+            padding: 10px 25px;
+            font-size: 11px;
+            text-align: justify;
+        }
+
+        /* Sidebar Boxes */
+        .sidebar-box {
+            width: 195px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header {
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 5px;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-size: 7pt;
+        }
+
+        .sidebar-content {
+            background-color: #867653;
+            padding: 10px;
+            text-align: justify;
+            font-size: 11px;
+        }
+
+        .sidebar-footer {
+            background-color: #B1904B;
+            border: 1px solid #B1904B;
+            padding: 5px;
+            text-align: right;
+        }
+
+        .sidebar-footer a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 7pt;
         }
 
         /* Sponsors Section */
         .sponsors-section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
             text-align: center;
         }
 
         .sponsors-section h3 {
-            color: #C23404;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
+            font-family: Verdana;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .sponsors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .sponsor-item {
@@ -355,384 +401,568 @@
         .sponsor-item img {
             max-width: 100%;
             height: auto;
-            max-height: 80px;
-            object-fit: contain;
         }
 
-        .sponsor-item p {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
+        .copy {
+            font-family: Verdana;
+            font-size: 10px;
+            color: #000000;
         }
 
         /* Footer */
-        .footer {
-            background: #2B2B2B;
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
+        .footerbackground {
+            background-color: #756748;
+            padding: 20px;
+        }
+
+        .footer-content {
+            text-align: right;
+            color: #000000;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-content .copy {
+            font-size: 10px;
+        }
+
+        .footer-content a {
+            color: #000000;
+            text-decoration: none;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav {
+            .nav-container {
+                margin-left: 10px;
+                max-width: calc(100% - 20px);
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                margin-left: 10px;
+                width: calc(100% - 20px);
+            }
+
+            .main-nav {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #2B2B2B;
                 flex-direction: column;
-                gap: 0;
-                border-radius: 0 0 10px 10px;
             }
 
-            .nav.active {
+            .main-nav.active {
                 display: flex;
             }
 
-            .nav li {
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .countries-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header-content {
-                position: relative;
+            .main-nav > li {
+                flex: none;
             }
 
             .dropdown {
                 position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: rgba(255,255,255,0.1);
-                margin-left: 1rem;
-                margin-bottom: 0.5rem;
+                display: block;
+                margin-left: 20px;
+            }
+
+            .video-section {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .content-section {
+                margin-right: 0;
+                padding-right: 0;
+            }
+
+            .summary-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 12pt;
+            }
+
+            .sponsors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 1rem 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.5rem;
+            .summary-header {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                text-align: center;
             }
 
-            .countries-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .polaroidbordersm {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
+        }
+
+        /* Links */
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .noborder {
+            border: none;
+        }
+
+        .starburst {
+            margin-left: 5px;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="index.html" class="logo">African Odyssey</a>
-            
-            <nav>
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <table width="100%" height="100%">
+        <tr class="headerbackground">
+            <td width="100%" height="162" valign="top">
+                <div style="height: 30px;">&nbsp;</div>
+                <!-- Navigation -->
+                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰ MENU</button>
+                <div class="nav-container">
+                    <ul class="main-nav" id="main-nav">
+                        <li>
+                            <a href="index.html">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#">ODYSSEY INFO</a>
+                            <ul class="dropdown">
+                                <li><a href="what-is-odyssey.html">What is the Odyssey?</a></li>
+                                <li><a href="crew-profiles.html">Crew Profiles</a></li>
+                                <li><a href="gps-route.html">The GPS Route</a></li>
+                                <li><a href="points-to-ponder.html">Points to Ponder</a></li>
+                                <li><a href="bikes-and-kit.html">Bikes and Kit</a></li>
+                                <li><a href="possible-routes.html">Possible Routes</a></li>
+                                <li><a href="dangers-of-africa.html">Dangers of Africa</a></li>
+                                <li><a href="links.html">Links to sites of interest</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">CHRONICLES</a>
+                            <ul class="dropdown">
+                                <li><a href="world-premier.html">World Premier</a></li>
+                                <li><a href="england.html">England</a></li>
+                                <li><a href="france.html">France</a></li>
+                                <li><a href="tunisia.html">Tunisia</a></li>
+                                <li><a href="libya.html">Libya</a></li>
+                                <li><a href="egypt.html">Egypt</a></li>
+                                <li><a href="sudan.html">Sudan</a></li>
+                                <li><a href="ethiopia.html">Ethiopia</a></li>
+                                <li><a href="kenya.html">Kenya</a></li>
+                                <li><a href="uganda.html">Uganda</a></li>
+                                <li><a href="tanzania.html">Tanzania</a></li>
+                                <li><a href="malawi.html">Malawi</a></li>
+                                <li><a href="zambia.html">Zambia</a></li>
+                                <li><a href="botswana.html">Botswana</a></li>
+                                <li><a href="south-africa.html">South Africa</a></li>
+                                <li><a href="malaysia.html">Malaysia</a></li>
+                                <li><a href="new-zealand.html">New Zealand</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">DOCUMENTARY</a>
+                            <ul class="dropdown">
+                                <li><a href="in-the-media.html">In the Media</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="equipment.html">Equipment</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">CREW WRITINGS</a>
+                            <ul class="dropdown">
+                                <li><a href="phill.html">Phill</a></li>
+                                <li><a href="jerry.html">Jerry</a></li>
+                                <li><a href="juls.html">Juls</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                
-                <ul class="nav" id="nav-menu">
-                    <li><a href="index.html">HOME</a></li>
-                    <li>
-                        <a href="#odyssey">ODYSSEY INFO</a>
-                        <ul class="dropdown">
-                            <li><a href="what-is-odyssey.html">What is the Odyssey?</a></li>
-                            <li><a href="crew-profiles.html">Crew Profiles</a></li>
-                            <li><a href="gps-route.html">The GPS Route</a></li>
-                            <li><a href="points-to-ponder.html">Points to Ponder</a></li>
-                            <li><a href="bikes-and-kit.html">Bikes and Kit</a></li>
-                            <li><a href="possible-routes.html">Possible Routes</a></li>
-                            <li><a href="dangers-of-africa.html">Dangers of Africa</a></li>
-                            <li><a href="links.html">Links to sites of interest</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#chronicles">CHRONICLES</a>
-                        <ul class="dropdown">
-                            <li><a href="new-zealand.html">New Zealand</a></li>
-                            <li><a href="malaysia.html">Malaysia</a></li>
-                            <li><a href="south-africa.html">South Africa</a></li>
-                            <li><a href="botswana.html">Botswana</a></li>
-                            <li><a href="zambia.html">Zambia</a></li>
-                            <li><a href="malawi.html">Malawi</a></li>
-                            <li><a href="tanzania.html">Tanzania</a></li>
-                            <li><a href="uganda.html">Uganda</a></li>
-                            <li><a href="kenya.html">Kenya</a></li>
-                            <li><a href="ethiopia.html">Ethiopia</a></li>
-                            <li><a href="sudan.html">Sudan</a></li>
-                            <li><a href="egypt.html">Egypt</a></li>
-                            <li><a href="libya.html">Libya</a></li>
-                            <li><a href="tunisia.html">Tunisia</a></li>
-                            <li><a href="france.html">France</a></li>
-                            <li><a href="england.html">England</a></li>
-                            <li><a href="world-premier.html">World Premier</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#documentary">DOCUMENTARY</a>
-                        <ul class="dropdown">
-                            <li><a href="in-the-media.html">In the Media</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="equipment.html">Equipment</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#crew-writings">CREW WRITINGS</a>
-                        <ul class="dropdown">
-                            <li><a href="phill.html">Phill</a></li>
-                            <li><a href="jerry.html">Jerry</a></li>
-                            <li><a href="juls.html">Juls</a></li>
-                        </ul>
-                    </li>
+            </td>
+        </tr>
+        <tr class="mainbackground">
+            <td valign="top" width="100%" height="100%">
+                <div class="main-content">
+                    <!-- Video Section (Right Sidebar) -->
+                    <div class="video-section">
+                        <div class="video-container">
+                            <div class="video-header">
+                                <img src="media/starburst-l.gif" alt="star" style="margin-right: 5px;"><strong>1st Jan - Hotel Lobby</strong>
+                            </div>
+                            <div class="video-content">
+                                <div class="video-placeholder">
+                                    <a href="https://www.youtube.com/watch?v=IfRzIHc3tg4" target="_blank" style="color: white; text-decoration: none;">
+                                        <div style="border: 2px solid #999; background: #555; padding: 20px; color: white;">
+                                            ▶ Watch Video<br>
+                                            Hotel Lobby<br>
+                                            (Click to open YouTube)
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-controls">
+                                <a href="#" style="color:#000">previous video</a>
+                                <span style="float: right;"><a href="#" style="color:#000">next video</a></span>
+                            </div>
+                        </div>
+
+                        <!-- Favourite Your Say Box -->
+                        <div class="sidebar-box" style="margin-top: 20px;">
+                            <div class="sidebar-header">
+                                <strong>Favourite Your Say! - Mikeyo</strong>
+                            </div>
+                            <div class="sidebar-content">
+                                Hello... anybody there??? Is it really the end... sniff...sniff... I miss the odyssey already. Whens and wheres the next odyssey?!
+                            </div>
+                            <div class="sidebar-footer">
+                                <a href="all-your-says.html" style="color:#000">read all your says</a>
+                            </div>
+                        </div>
+
+                        <!-- Press Release Box -->
+                        <div class="sidebar-box">
+                            <div class="sidebar-header">
+                                <strong>Press Release - May 08!</strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/starburst.gif" alt="star">
+                            </div>
+                            <div class="sidebar-content">
+                                The african odyssey press machine got some new sprockets and kicked into action and its a mighty fine machine! Check out our press machine release using the link below!
+                            </div>
+                            <div class="sidebar-footer">
+                                <a href="media/Press_Release_Full.pdf" style="color:#000" target="_blank">View the Press Release!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Section -->
+                    <div class="content-section">
+                        <h1>African Odyssey - Cape Town to London: 28th July 06 - January 20th 07</h1>
+
+                        <blockquote>
+                            <br><br>
+                            <div align="center">
+                                <p align="justify"><br>
+                                No corporate sponsor, no camera crew, no changing room, no expensive equipment, just raw adventure New Zealand style. Come and live vicariously at the premier screening of the African Odyssey!! <a href="what-is-odyssey.html" title="Find out more about The African Odyssey">Find out more about the African Odyssey here...</a>
+                                </p>
+                                
+                                <strong>
+                                    <a href="sample-videos.html" target="_blank">
+                                        <img height="35" border="0" width="35" title="New Videos" alt="New Videos" src="media/star.gif">View some of our Sample Teaser Videos here!<br>
+                                    </a><br>
+                                    <a class="noborder" href="https://www.youtube.com/watch?v=IfRzIHc3tg4" target="_blank">
+                                        <img border="0" class="noborder" title="Burning Video" style="border: 2px solid #999999" alt="Burning Video" src="media/Burning_preview.gif">
+                                    </a>
+                                    <a class="noborder" href="sample-videos.html" target="_blank">
+                                        <img border="0" class="noborder" title="See Me Video" style="border: 2px solid #999999" alt="See Me Video" src="media/Seeme_preview.gif">
+                                    </a>
+                                    <a class="noborder" href="sample-videos.html" target="_blank">
+                                        <img border="0" class="noborder" title="Cant Run Video" style="border: 2px solid #999999" alt="Cant Run Video" src="media/Cantrun_preview.gif">
+                                    </a>
+                                </strong>
+                            </div>
+                            <h3><br></h3>
+                            <div align="center">
+                                <h2><strong><em>The Odyssey summarised by country:</em></strong></h2>
+                            </div>
+                        </blockquote>
+
+                        <!-- Country Summary Tables -->
+                        <div class="summary-container">
+                            <div class="summary-row">
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/Windy road 3.jpg" alt="New Zealand">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">New Zealand<br>
+                                                <span class="smtitle"><a href="easter-warm-up.html">Easter Warm Up Mission</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>14th April 2006</strong></h3>
+                                        <strong>Location: North Island, New Zealand</strong><br>
+                                        In the early days of trip planning Mungo and Phill put their newly aquired bikes to the test with an easter weekend mish. After meeting in Wellington (Phill came from... <a href="easter-warm-up.html">read more</a>
+                                    </div>
+                                </div>
+
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/IMG_0428 (Large).JPG" alt="New Zealand">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">New Zealand<br>
+                                                <span class="smtitle"><a href="crating-shipping.html">Crating and Shipping</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>17th June 2006</strong></h3>
+                                        <strong>Location: Christchurch, New Zealand</strong><br>
+                                        After a short ferry ride from Wellington across the ravage cook strait, Mungo and Juls opened up their bikes to South Island tarmac and crisp fresh air. There was speculative talk of snow,... <a href="crating-shipping.html">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-row">
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/IMG_6261 (Small)[1].JPG" alt="New Zealand">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">New Zealand<br>
+                                                <span class="smtitle"><a href="farewell-nz.html">Farewell New Zealand</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>28th July 2006</strong></h3>
+                                        <strong>Location: Whakatane, New Zealand</strong><br>
+                                        We had a wonderful farewell meal for all the crew members families the night before leaving Whakatane. The conversation was focused, the food was superb and the... <a href="farewell-nz.html">read more</a>
+                                    </div>
+                                </div>
+
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/African Odyssey - Malaysia 018 (Small).jpg" alt="Malaysia">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">Malaysia<br>
+                                                <span class="smtitle"><a href="malaysia.html">A Malaysian Stopover</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>31st July 2006</strong></h3>
+                                        <strong>Location: Kuala Lumpur, Malaysia</strong><br>
+                                        We have taken our first punishment for being disorganised. With the madness of organising gear for the documentary and general gear for the journey... <a href="malaysia.html">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Continue with more country rows... I'll add a few more key ones -->
+                            <div class="summary-row">
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/Picture 052 (Small).jpg" alt="South Africa">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">South Africa<br>
+                                                <span class="smtitle"><a href="capetown-durban.html">Capetown to Durban</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>6th August 2006</strong></h3>
+                                        <strong>Location: Capetown, South Africa</strong><br>
+                                        At last we have arrived in Africa! Flying to Capetown last Wednesday was a punishing 14 hour ordeal, but we managed to get through customs with our one way... <a href="capetown-durban.html">read more</a>
+                                    </div>
+                                </div>
+
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/Picture 051 (Small).jpg" alt="South Africa">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">South Africa<br>
+                                                <span class="smtitle"><a href="durban-joburg.html">Durban to Johannsberg</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>28th August 2006</strong></h3>
+                                        <strong>Location: Johannsberg, South Africa</strong><br>
+                                        A super cold ride greeted us as we rolled out of Durban heading for the Drakensburg world heritage area. The Drakensburg was a great place to... <a href="durban-joburg.html">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add final journey entries -->
+                            <div class="summary-row">
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/IMG_9072 (Small).JPG" alt="England">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">England<br>
+                                                <span class="smtitle"><a href="lyon-london.html">Lyon to London</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>20th January 2007</strong></h3>
+                                        <strong>Location: London, England</strong><br>
+                                        WE MADE IT!! One hundred and sixty eight days after leaving Capetown we have reached London, England! The final destination of our epic African Odyssey... <a href="lyon-london.html">read more</a>
+                                    </div>
+                                </div>
+
+                                <div class="summary-table">
+                                    <div class="summary-header">
+                                        <div class="polaroidbordersm">
+                                            <div class="polaroidsm">
+                                                <img class="noborder" src="files/Affrican Od Prem 2008  1785.jpg" alt="World Premier">
+                                            </div>
+                                        </div>
+                                        <div class="summary-title">
+                                            <span class="titles">World Premier<br>
+                                                <span class="smtitle"><a href="world-premier.html">Whakatane World Premier</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h3><strong>31st May 2008</strong></h3>
+                                        <strong>Location: Whakatane, New Zealand</strong><br>
+                                        A big thank you to Whakatane Community and Business' that supported us and also a big thank you to all of our Family that helped make such a wonderful occasion... <a href="world-premier.html">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: right; margin-top: 10px;">
+                                Read all past stories <a href="all-stories.html">here</a>
+                            </div>
+                        </div>
+
+                        <!-- Route Map -->
+                        <div class="map-section">
+                            <h3>Route Map</h3>
+                            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                                    src="https://maps.google.com/maps?f=q&hl=en&geocode=&q=cape+town+to+london+motorcycle+route&ie=UTF8&ll=8.509154,19.668961&spn=85.543507,39.090612&output=embed"></iframe><br>
+                            <small><a href="#" target="_blank">View Larger Map</a></small>
+                        </div>
+
+                        <!-- Your Say Section -->
+                        <div class="yoursay-section">
+                            <div class="yoursay-button">
+                                <div align="left"><strong>To leave a note for the<br> boys click Your Say!</strong><br>
+                                <a href="javascript:void(0)" onclick="alert('Comment form would open here')" class="noborder">
+                                    <img class="noborder" border="1" src="media/yoursay.jpg" alt="Your Say">
+                                </a></div>
+                            </div>
+
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    &nbsp;&nbsp;&nbsp;stephen molloy :: August 25 2008
+                                </div>
+                                <div class="comment-content">
+                                    This looks choice! I can not wait for first showing in Dunedin. I will organise a bike crew for sure. stephen www.thelasthurrah.co.nz
+                                </div>
+                            </div>
+
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    &nbsp;&nbsp;&nbsp;Geoff Neal :: August 24 2008
+                                </div>
+                                <div class="comment-content">
+                                    Hey Phil & co, Loved the premier here in Auckland! Went along with Rich Blackmore. My gf is watching the DVD right now and loving it too! Hope all the discussions are going well to get it into the mainstream. It definitely deserves to be there! Congrats Geoff
+                                </div>
+                            </div>
+
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    &nbsp;&nbsp;&nbsp;emily oleary :: July 13 2008
+                                </div>
+                                <div class="comment-content">
+                                    Eat your hearts out Ewan and Charley- you guys cut some serious tracks and it was an absolute blast to see it on the big screen last night in Wellywood. Inspiring, epic and a true embodiment of the good all kiwi 'can do attitude!!!!' Nice one…………… enjoy your next adventure.... Never let the hummm of a 250cc/650cc engine leave your soul or the smell of burnt rubber be far away. Be cool Emily O'Leary
+                                </div>
+                            </div>
+
+                            <div style="text-align: right; margin-top: 10px;">
+                                <a href="all-messages.html">see all past messages</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clear floats -->
+                    <div style="clear: both;"></div>
+
+                    <!-- Sponsors Section -->
+                    <div class="sponsors-section">
+                        <h3>Main Sponsors</h3>
+                        <div class="sponsors-grid">
+                            <div class="sponsor-item">
+                                <a href="#" target="_blank" class="copy">Film Production Supported by NZ Greenroom Productions<br>
+                                <img class="copy" src="files/nzgreen.jpg" alt="NZ Green"></a>
+                            </div>
+                            <div class="sponsor-item">
+                                <a href="#" target="_blank" class="copy">Adventure products supplied by Whakatane Great Outdoors Centre<br>
+                                <img class="copy" src="files/ourdoorscentre.jpg" alt="Outdoors Centre"></a>
+                            </div>
+                            <div class="sponsor-item">
+                                <a href="#" target="_blank" class="copy">Jonathans Camera and Video<br>
+                                <img class="copy" src="files/jonathanscamera.jpg" alt="Jonathans Camera"></a>
+                            </div>
+                            <div class="sponsor-item">
+                                <a href="#" target="_blank" class="copy">Motorcycle Parts supplied by Bay Honda<br>
+                                <img class="copy" src="files/gnLogo.gif" alt="Bay Honda"></a>
+                            </div>
+                            <div class="sponsor-item">
+                                <a href="#" target="_blank" class="copy">Libyan travel Arrangements by Fessano-W-Tours<br>
+                                <img class="copy" src="files/Lybia.JPG" alt="Fessano Tours"></a>
+                            </div>
+                        </div>
+                        
+                        <h3>African Odyssey Website development and maintenance<br><br>
+                        <a href="#" class="copy"><img class="copy" width="150" height="38" src="files/FM-Logo.gif" alt="Fenomenal Media"></a></h3>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="footerbackground">
+            <td class="footer-content">
+                <br>
+                <ul style="list-style-type:none;">
+                    <li class="copy">site design by <a href="#"><img class="copy" src="media/FM.gif" align="absbottom" alt="Fenomenal Media"></a><a href="#" class="copy">&nbsp;©</a>&nbsp;2008&nbsp;</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>African Odyssey - Cape Town to London: 28th July 06 - January 20th 07</h1>
-            <div class="hero-description">
-                <p>No corporate sponsor, no camera crew, no changing room, no expensive equipment, just raw adventure New Zealand style. Come and live vicariously through the epic African Odyssey! <a href="what-is-odyssey.html" class="read-more">Find out more about the African Odyssey here...</a></p>
-            </div>
-        </section>
-
-        <section class="video-section">
-            <h2>Latest Video: 1st Jan - Hotel Lobby</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <h3>Video Player</h3>
-                    <p>Hotel Lobby video would be displayed here</p>
-                    <p><a href="#" style="color: white;">Previous Video</a> | <a href="#" style="color: white;">Next Video</a></p>
-                </div>
-            </div>
-            <p><a href="sample-videos.html" class="read-more">🌟 View some of our Sample Teaser Videos here!</a></p>
-        </section>
-
-        <section class="countries-section">
-            <h2>The Odyssey summarised by country:</h2>
-            
-            <div class="countries-grid">
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/Windy road 3.jpg" alt="New Zealand" class="country-image">
-                        <div class="country-title">
-                            <h3>New Zealand</h3>
-                            <div class="subtitle"><a href="easter-warm-up.html" style="color: rgba(255,255,255,0.9);">Easter Warm Up Mission</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">14th April 2006</div>
-                        <div class="country-location">Location: North Island, New Zealand</div>
-                        <div class="country-description">
-                            In the early days of trip planning Mungo and Phill put their newly acquired bikes to the test with an easter weekend mission. After meeting in Wellington (Phill came from...
-                        </div>
-                        <a href="easter-warm-up.html" class="read-more">read more</a>
-                    </div>
-                </article>
-
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/IMG_0428 (Large).JPG" alt="New Zealand" class="country-image">
-                        <div class="country-title">
-                            <h3>New Zealand</h3>
-                            <div class="subtitle"><a href="crating-shipping.html" style="color: rgba(255,255,255,0.9);">Crating and Shipping</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">17th June 2006</div>
-                        <div class="country-location">Location: Christchurch, New Zealand</div>
-                        <div class="country-description">
-                            After a short ferry ride from Wellington across the savage cook strait, Mungo and Juls opened up their bikes to South Island tarmac and crisp fresh air. There was speculative talk of snow...
-                        </div>
-                        <a href="crating-shipping.html" class="read-more">read more</a>
-                    </div>
-                </article>
-
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/African Odyssey - Malaysia 018 (Small).jpg" alt="Malaysia" class="country-image">
-                        <div class="country-title">
-                            <h3>Malaysia</h3>
-                            <div class="subtitle"><a href="malaysia.html" style="color: rgba(255,255,255,0.9);">A Malaysian Stopover</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">31st July 2006</div>
-                        <div class="country-location">Location: Kuala Lumpur, Malaysia</div>
-                        <div class="country-description">
-                            We have taken our first punishment for being disorganised. With the madness of organising gear for the documentary and general gear for the journey...
-                        </div>
-                        <a href="malaysia.html" class="read-more">read more</a>
-                    </div>
-                </article>
-
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/Picture 052 (Small).jpg" alt="South Africa" class="country-image">
-                        <div class="country-title">
-                            <h3>South Africa</h3>
-                            <div class="subtitle"><a href="capetown-durban.html" style="color: rgba(255,255,255,0.9);">Capetown to Durban</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">6th August 2006</div>
-                        <div class="country-location">Location: Capetown, South Africa</div>
-                        <div class="country-description">
-                            At last we have arrived in Africa! Flying to Capetown last Wednesday was a punishing 14 hour ordeal, but we managed to get through customs with our one way...
-                        </div>
-                        <a href="capetown-durban.html" class="read-more">read more</a>
-                    </div>
-                </article>
-
-                <!-- Add more country cards following the same pattern -->
-                <!-- I'll add a couple more for demonstration -->
-                
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/IMG_9072 (Small).JPG" alt="England" class="country-image">
-                        <div class="country-title">
-                            <h3>England</h3>
-                            <div class="subtitle"><a href="lyon-london.html" style="color: rgba(255,255,255,0.9);">Lyon to London</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">20th January 2007</div>
-                        <div class="country-location">Location: London, England</div>
-                        <div class="country-description">
-                            WE MADE IT!! One hundred and sixty eight days after leaving Capetown we have reached London, England! The final destination of our epic African Odyssey...
-                        </div>
-                        <a href="lyon-london.html" class="read-more">read more</a>
-                    </div>
-                </article>
-
-                <article class="country-card">
-                    <header class="country-header">
-                        <img src="files/Affrican Od Prem 2008  1785.jpg" alt="World Premier" class="country-image">
-                        <div class="country-title">
-                            <h3>World Premier</h3>
-                            <div class="subtitle"><a href="world-premier.html" style="color: rgba(255,255,255,0.9);">Whakatane World Premier</a></div>
-                        </div>
-                    </header>
-                    <div class="country-content">
-                        <div class="country-date">31st May 2008</div>
-                        <div class="country-location">Location: Whakatane, New Zealand</div>
-                        <div class="country-description">
-                            A big thank you to Whakatane Community and Business' that supported us and also a big thank you to all of our Family that helped make such a wonderful occasion...
-                        </div>
-                        <a href="world-premier.html" class="read-more">read more</a>
-                    </div>
-                </article>
-            </div>
-            
-            <div style="text-align: right; margin-top: 1rem;">
-                <a href="all-stories.html" class="read-more">Read all past stories here</a>
-            </div>
-        </section>
-
-        <section class="map-section">
-            <h3>Route Map</h3>
-            <div class="map-container">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                        src="https://maps.google.com/maps?f=q&hl=en&geocode=&q=cape+town+to+london+route&ie=UTF8&ll=8.509154,19.668961&spn=85.543507,39.090612&output=embed" 
-                        style="border-radius: 10px;"></iframe>
-                <small><a href="#" target="_blank">View Larger Map</a></small>
-            </div>
-        </section>
-
-        <section class="comments-section">
-            <div class="comments-header">
-                <h3>Your Say!</h3>
-                <button class="your-say-btn" onclick="toggleCommentForm()">Leave a message for the boys!</button>
-            </div>
-
-            <div class="comment">
-                <div class="comment-header">stephen molloy :: August 25 2008</div>
-                <div>This looks choice! I can not wait for first showing in Dunedin. I will organise a bike crew for sure. stephen www.thelasthurrah.co.nz</div>
-            </div>
-
-            <div class="comment">
-                <div class="comment-header">Geoff Neal :: August 24 2008</div>
-                <div>Hey Phil & co, Loved the premier here in Auckland! Went along with Rich Blackmore. My gf is watching the DVD right now and loving it too! Hope all the discussions are going well to get it into the mainstream. It definitely deserves to be there! Congrats Geoff</div>
-            </div>
-
-            <div class="comment">
-                <div class="comment-header">emily oleary :: July 13 2008</div>
-                <div>Eat your hearts out Ewan and Charley- you guys cut some serious tracks and it was an absolute blast to see it on the big screen last night in Wellywood. Inspiring, epic and a true embodiment of the good all kiwi 'can do attitude!!!!' Nice one…………… enjoy your next adventure.... Never let the hummm of a 250cc/650cc engine leave your soul or the smell of burnt rubber be far away. Be cool Emily O'Leary</div>
-            </div>
-
-            <div style="text-align: right; margin-top: 1rem;">
-                <a href="all-messages.html" class="read-more">see all past messages</a>
-            </div>
-        </section>
-
-        <section class="sponsors-section">
-            <h3>Main Sponsors</h3>
-            <div class="sponsors-grid">
-                <div class="sponsor-item">
-                    <img src="files/nzgreen.jpg" alt="NZ Green">
-                    <p>Film Production Supported by NZ Greenroom Productions</p>
-                </div>
-                <div class="sponsor-item">
-                    <img src="files/ourdoorscentre.jpg" alt="Great Outdoors Centre">
-                    <p>Adventure products supplied by Whakatane Great Outdoors Centre</p>
-                </div>
-                <div class="sponsor-item">
-                    <img src="files/jonathanscamera.jpg" alt="Jonathans Camera">
-                    <p>Jonathans Camera and Video</p>
-                </div>
-                <div class="sponsor-item">
-                    <img src="files/gnLogo.gif" alt="Bay Honda">
-                    <p>Motorcycle Parts supplied by Bay Honda</p>
-                </div>
-                <div class="sponsor-item">
-                    <img src="files/Lybia.JPG" alt="Fessano Tours">
-                    <p>Libyan travel Arrangements by Fessano-W-Tours</p>
-                </div>
-            </div>
-            <h3 style="margin-top: 2rem;">African Odyssey Website development and maintenance</h3>
-            <img src="files/FM-Logo.gif" alt="Fenomenal Media" style="max-height: 50px; margin-top: 1rem;">
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>site design by Fenomenal Media © 2008</p>
-    </footer>
+            </td>
+        </tr>
+    </table>
 
     <script>
-        function toggleMenu() {
-            const nav = document.getElementById('nav-menu');
+        function toggleMobileNav() {
+            const nav = document.getElementById('main-nav');
             nav.classList.toggle('active');
-        }
-
-        function toggleCommentForm() {
-            alert('Comment form would be displayed here');
         }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            const nav = document.getElementById('nav-menu');
-            const toggle = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('main-nav');
+            const toggle = document.querySelector('.mobile-nav-toggle');
             
             if (!nav.contains(event.target) && !toggle.contains(event.target)) {
                 nav.classList.remove('active');
