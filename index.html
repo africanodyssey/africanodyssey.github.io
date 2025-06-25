@@ -21,6 +21,7 @@
             background-color: #756748;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         /* Header Background with Logo */
@@ -34,22 +35,30 @@
             position: relative;
         }
 
-        /* Main Background */
-        .mainbackground {
-            background-color: #756748;
-            min-height: 100vh;
+        /* Navigation Bar - Separated from Header */
+        .navigation-bar {
+            background-color: #C23404;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Fixed Navigation Styles - Works Across All Resolutions */
         .nav-container {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #C23404;
-            width: 500px;
-            max-width: 90%;
-            z-index: 1000;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #F1F1F1;
+            font-size: 18px;
+            padding: 10px 15px;
+            cursor: pointer;
         }
 
         .main-nav {
@@ -61,7 +70,6 @@
         }
 
         .main-nav > li {
-            flex: 1;
             position: relative;
         }
 
@@ -69,15 +77,14 @@
             display: block;
             color: #F1F1F1;
             text-decoration: none;
-            padding: 5px 2px;
+            padding: 8px 20px;
             text-align: center;
             font-family: Verdana;
             font-size: 7pt;
             font-weight: bold;
             background-color: #C23404;
             transition: all 0.3s;
-            height: 15px;
-            line-height: 5px;
+            white-space: nowrap;
         }
 
         .main-nav > li > a:hover {
@@ -92,13 +99,13 @@
             left: 0;
             background-color: #2B2B2B;
             border: 1px solid #2B2B2B;
-            min-width: 155px;
+            min-width: 200px;
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .main-nav li:hover .dropdown {
@@ -115,43 +122,82 @@
             display: block;
             color: #FFFFFF !important;
             background-color: #C23404 !important;
-            text-align: center;
-            padding: 5px 2px;
+            text-align: left;
+            padding: 8px 15px;
             font-size: 7pt;
-            height: 25px;
-            line-height: 15px;
             text-decoration: none;
             transition: all 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .dropdown a:hover {
             color: #2B2B2B !important;
-            background-color: #C23404 !important;
+            background-color: #B1904B !important;
         }
 
-        /* Mobile Navigation Toggle */
-        .mobile-nav-toggle {
-            display: none;
-            background-color: #C23404;
-            color: #F1F1F1;
-            border: none;
-            padding: 10px;
-            font-family: Verdana;
-            font-size: 7pt;
-            font-weight: bold;
-            margin: 10px;
-            cursor: pointer;
-            width: calc(100% - 20px);
+        /* Side Design Elements */
+        .side-design {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 60px;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .vertical-strip {
             position: absolute;
-            bottom: 0;
+            right: 0;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            background: linear-gradient(180deg, #8B7355 0%, #6B5D42 50%, #5A4D36 100%);
+            border-left: 2px solid #4A3D2A;
+        }
+
+        .quarter-circle {
+            position: absolute;
+            right: 40px;
+            top: 20%;
+            width: 100px;
+            height: 100px;
+            border-radius: 0 0 0 100px;
+            background: linear-gradient(135deg, #9A8562 0%, #7A6B4F 100%);
+            border: 2px solid #4A3D2A;
+            border-right: none;
+            border-top: none;
+            opacity: 0.8;
+        }
+
+        .quarter-circle-2 {
+            position: absolute;
+            right: 40px;
+            bottom: 30%;
+            width: 80px;
+            height: 80px;
+            border-radius: 0 0 0 80px;
+            background: linear-gradient(135deg, #8B7355 0%, #6B5D42 100%);
+            border: 2px solid #4A3D2A;
+            border-right: none;
+            border-top: none;
+            opacity: 0.6;
+        }
+
+        /* Main Background */
+        .mainbackground {
+            background-color: #756748;
+            min-height: 100vh;
+            margin-right: 60px;
         }
 
         /* Content Container */
         .main-content {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 20px;
             background-color: #756748;
+            min-height: calc(100vh - 162px);
         }
 
         /* Page Title */
@@ -173,7 +219,7 @@
 
         /* Content Section */
         .content-section {
-            margin-right: 300px;
+            margin-right: 240px;
             padding-right: 20px;
         }
 
@@ -189,6 +235,9 @@
         .youtube-container {
             text-align: center;
             margin: 20px 0;
+            background-color: #867653;
+            padding: 15px;
+            border-radius: 5px;
         }
 
         .youtube-container iframe {
@@ -196,10 +245,11 @@
             border-radius: 5px;
         }
 
-        /* Summary Tables - Preserving Original Design */
+        /* Summary Tables - Fixed CSS Issues */
         .summary-container {
-            width: 96%;
-            margin: 20px auto;
+            width: 100%;
+            margin: 20px 0;
+            background-color: transparent;
         }
 
         .summary-row {
@@ -212,20 +262,25 @@
             flex: 1;
             background-color: #ffffff;
             border: 1px solid #B1904B;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
         }
 
         .summary-header {
             background-color: #B1904B;
-            border: 1px solid #B1904B;
+            border-bottom: 1px solid #B1904B;
             padding: 10px;
-            height: 70px;
+            min-height: 70px;
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .polaroidbordersm {
             border: 2px solid #999999;
             margin-right: 10px;
+            flex-shrink: 0;
         }
 
         .polaroidsm img {
@@ -259,6 +314,7 @@
             background-color: #867653;
             padding: 15px;
             color: #000000;
+            flex: 1;
         }
 
         .summary-content h3 {
@@ -281,6 +337,9 @@
         /* Map Section */
         .map-section {
             margin: 30px 0;
+            background-color: #867653;
+            padding: 15px;
+            border-radius: 5px;
         }
 
         .map-section h3 {
@@ -301,20 +360,22 @@
 
         .comment-item {
             margin-bottom: 20px;
+            background-color: #ffffff;
+            border: 1px solid #B1904B;
         }
 
         .comment-header {
             background-color: #B1904B;
-            border: 1px solid #B1904B;
+            border-bottom: 1px solid #B1904B;
             padding: 5px 15px;
             font-size: 7pt;
-            height: auto;
-            min-height: 16px;
-            line-height: 16px;
+            min-height: 20px;
+            line-height: 20px;
         }
 
         .comment-content {
-            padding: 10px 25px;
+            background-color: #867653;
+            padding: 10px 15px;
             font-size: 11px;
             text-align: justify;
         }
@@ -323,16 +384,17 @@
         .sidebar-box {
             width: 195px;
             margin-bottom: 20px;
+            background-color: #ffffff;
+            border: 1px solid #B1904B;
         }
 
         .sidebar-header {
             background-color: #B1904B;
-            border: 1px solid #B1904B;
+            border-bottom: 1px solid #B1904B;
             padding: 5px;
             font-weight: bold;
             font-size: 7pt;
-            height: auto;
-            min-height: 16px;
+            min-height: 20px;
         }
 
         .sidebar-content {
@@ -344,7 +406,6 @@
 
         .sidebar-footer {
             background-color: #B1904B;
-            border: 1px solid #B1904B;
             padding: 5px;
             text-align: right;
         }
@@ -359,11 +420,15 @@
         .footerbackground {
             background-color: #756748;
             padding: 20px;
+            margin-right: 60px;
+            border-top: 2px solid #4A3D2A;
         }
 
         .footer-content {
             text-align: center;
             color: #000000;
+            max-width: 1140px;
+            margin: 0 auto;
         }
 
         .footer-content .copy {
@@ -371,51 +436,45 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .nav-container {
-                left: 110px;
-                transform: none;
-                width: calc(100% - 130px);
-            }
-        }
-
         @media (max-width: 768px) {
-            .headerbackground {
-                background-size: contain;
-                background-position: center;
-            }
-
-            .nav-container {
-                position: static;
-                left: auto;
-                transform: none;
-                width: 100%;
-                margin: 0;
+            .side-design {
                 display: none;
             }
 
-            .nav-container.active {
-                display: block;
+            .mainbackground {
+                margin-right: 0;
             }
 
-            .mobile-nav-toggle {
+            .footerbackground {
+                margin-right: 0;
+            }
+
+            .hamburger {
                 display: block;
-                position: static;
             }
 
             .main-nav {
+                display: none;
                 flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #2B2B2B;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            }
+
+            .main-nav.active {
+                display: flex;
             }
 
             .main-nav > li {
-                flex: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
             .main-nav > li > a {
                 text-align: left;
-                padding: 10px 15px;
-                height: auto;
-                line-height: normal;
+                padding: 12px 15px;
             }
 
             .dropdown {
@@ -425,6 +484,7 @@
                 transform: none;
                 margin-left: 20px;
                 margin-bottom: 5px;
+                background-color: rgba(255,255,255,0.1);
             }
 
             .sidebar {
@@ -450,12 +510,17 @@
             h1 {
                 font-size: 12pt;
             }
+
+            .youtube-container iframe {
+                width: 100%;
+                height: 200px;
+            }
         }
 
         @media (max-width: 480px) {
             .summary-header {
                 flex-direction: column;
-                height: auto;
+                min-height: auto;
                 padding: 10px;
                 text-align: center;
             }
@@ -465,9 +530,8 @@
                 margin-bottom: 10px;
             }
 
-            .youtube-container iframe {
-                width: 100%;
-                height: 200px;
+            .nav-container {
+                padding: 0 10px;
             }
         }
 
@@ -484,73 +548,95 @@
         .noborder {
             border: none;
         }
+
+        /* Clear any white backgrounds that might show */
+        table {
+            background-color: transparent;
+        }
+
+        td {
+            background-color: transparent;
+        }
     </style>
 </head>
 <body>
+    <!-- Side Design Elements -->
+    <div class="side-design">
+        <div class="vertical-strip"></div>
+        <div class="quarter-circle"></div>
+        <div class="quarter-circle-2"></div>
+    </div>
+
     <table width="100%" height="100%">
         <tr class="headerbackground">
             <td width="100%" height="162" valign="top">
-                <!-- Mobile Navigation Toggle -->
-                <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰ MENU</button>
-                
-                <!-- Navigation -->
-                <div class="nav-container" id="nav-container">
-                    <ul class="main-nav">
-                        <li>
-                            <a href="index.html">HOME</a>
-                        </li>
-                        <li>
-                            <a href="#">ODYSSEY INFO</a>
-                            <ul class="dropdown">
-                                <li><a href="what-is-odyssey.html">What is the Odyssey?</a></li>
-                                <li><a href="crew-profiles.html">Crew Profiles</a></li>
-                                <li><a href="gps-route.html">The GPS Route</a></li>
-                                <li><a href="points-to-ponder.html">Points to Ponder</a></li>
-                                <li><a href="bikes-and-kit.html">Bikes and Kit</a></li>
-                                <li><a href="possible-routes.html">Possible Routes</a></li>
-                                <li><a href="dangers-of-africa.html">Dangers of Africa</a></li>
-                                <li><a href="links.html">Links to sites of interest</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">CHRONICLES</a>
-                            <ul class="dropdown">
-                                <li><a href="world-premier.html">World Premier</a></li>
-                                <li><a href="england.html">England</a></li>
-                                <li><a href="france.html">France</a></li>
-                                <li><a href="tunisia.html">Tunisia</a></li>
-                                <li><a href="libya.html">Libya</a></li>
-                                <li><a href="egypt.html">Egypt</a></li>
-                                <li><a href="sudan.html">Sudan</a></li>
-                                <li><a href="ethiopia.html">Ethiopia</a></li>
-                                <li><a href="kenya.html">Kenya</a></li>
-                                <li><a href="uganda.html">Uganda</a></li>
-                                <li><a href="tanzania.html">Tanzania</a></li>
-                                <li><a href="malawi.html">Malawi</a></li>
-                                <li><a href="zambia.html">Zambia</a></li>
-                                <li><a href="botswana.html">Botswana</a></li>
-                                <li><a href="south-africa.html">South Africa</a></li>
-                                <li><a href="malaysia.html">Malaysia</a></li>
-                                <li><a href="new-zealand.html">New Zealand</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">DOCUMENTARY</a>
-                            <ul class="dropdown">
-                                <li><a href="in-the-media.html">In the Media</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="equipment.html">Equipment</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">CREW WRITINGS</a>
-                            <ul class="dropdown">
-                                <li><a href="phill.html">Phill</a></li>
-                                <li><a href="jerry.html">Jerry</a></li>
-                                <li><a href="juls.html">Juls</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <!-- Header content (just the image) -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Navigation Bar - Separate from Header -->
+                <div class="navigation-bar">
+                    <div class="nav-container">
+                        <button class="hamburger" onclick="toggleMobileNav()">☰ MENU</button>
+                        
+                        <ul class="main-nav" id="main-nav">
+                            <li>
+                                <a href="index.html">HOME</a>
+                            </li>
+                            <li>
+                                <a href="#">ODYSSEY INFO</a>
+                                <ul class="dropdown">
+                                    <li><a href="what-is-odyssey.html">What is the Odyssey?</a></li>
+                                    <li><a href="crew-profiles.html">Crew Profiles</a></li>
+                                    <li><a href="gps-route.html">The GPS Route</a></li>
+                                    <li><a href="points-to-ponder.html">Points to Ponder</a></li>
+                                    <li><a href="bikes-and-kit.html">Bikes and Kit</a></li>
+                                    <li><a href="possible-routes.html">Possible Routes</a></li>
+                                    <li><a href="dangers-of-africa.html">Dangers of Africa</a></li>
+                                    <li><a href="links.html">Links to sites of interest</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">CHRONICLES</a>
+                                <ul class="dropdown">
+                                    <li><a href="world-premier.html">World Premier</a></li>
+                                    <li><a href="england.html">England</a></li>
+                                    <li><a href="france.html">France</a></li>
+                                    <li><a href="tunisia.html">Tunisia</a></li>
+                                    <li><a href="libya.html">Libya</a></li>
+                                    <li><a href="egypt.html">Egypt</a></li>
+                                    <li><a href="sudan.html">Sudan</a></li>
+                                    <li><a href="ethiopia.html">Ethiopia</a></li>
+                                    <li><a href="kenya.html">Kenya</a></li>
+                                    <li><a href="uganda.html">Uganda</a></li>
+                                    <li><a href="tanzania.html">Tanzania</a></li>
+                                    <li><a href="malawi.html">Malawi</a></li>
+                                    <li><a href="zambia.html">Zambia</a></li>
+                                    <li><a href="botswana.html">Botswana</a></li>
+                                    <li><a href="south-africa.html">South Africa</a></li>
+                                    <li><a href="malaysia.html">Malaysia</a></li>
+                                    <li><a href="new-zealand.html">New Zealand</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">DOCUMENTARY</a>
+                                <ul class="dropdown">
+                                    <li><a href="in-the-media.html">In the Media</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="equipment.html">Equipment</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">CREW WRITINGS</a>
+                                <ul class="dropdown">
+                                    <li><a href="phill.html">Phill</a></li>
+                                    <li><a href="jerry.html">Jerry</a></li>
+                                    <li><a href="juls.html">Juls</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </td>
         </tr>
@@ -836,21 +922,21 @@
 
     <script>
         function toggleMobileNav() {
-            const navContainer = document.getElementById('nav-container');
-            navContainer.classList.toggle('active');
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
         }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            const navContainer = document.getElementById('nav-container');
-            const toggle = document.querySelector('.mobile-nav-toggle');
+            const nav = document.getElementById('main-nav');
+            const hamburger = document.querySelector('.hamburger');
             
-            if (!navContainer.contains(event.target) && !toggle.contains(event.target)) {
-                navContainer.classList.remove('active');
+            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+                nav.classList.remove('active');
             }
         });
 
-        // Ensure dropdowns work on mobile
+        // Handle mobile dropdowns
         document.addEventListener('DOMContentLoaded', function() {
             const dropdownParents = document.querySelectorAll('.main-nav > li > a');
             
