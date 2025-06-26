@@ -24,18 +24,18 @@
             overflow-x: hidden;
         }
 
-        /* Header Background with Logo - Made Responsive */
-        .headerbackground {
-            background-image: url('https://africanodyssey.github.io/header.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover;
-            min-height: 120px;
-            height: 25vw;
-            max-height: 160px;
-            width: 100%;
-            position: relative;
-        }
+/* Header Background with Logo - Better Responsive Sizing */
+.headerbackground {
+    background-image: url('https://africanodyssey.github.io/header.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    min-height: 100px;
+    height: 18vw;
+    max-height: 140px;
+    width: 100%;
+    position: relative;
+}
 
         /* Hamburger Menu Button */
         .hamburger-menu {
@@ -431,23 +431,50 @@
             font-size: 10px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .headerbackground {
-                height: 20vw;
-                min-height: 100px;
-                max-height: 160px;
-            }
-        }
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .headerbackground {
+        height: 16vw;
+        min-height: 90px;
+        max-height: 130px;
+    }
+}
 
-        @media (max-width: 768px) {
-            .headerbackground {
-                height: 15vw;
-                min-height: 80px;
-                max-height: 120px;
-                background-size: contain;
-                background-position: center;
-            }
+@media (max-width: 1200px) {
+    .headerbackground {
+        height: 14vw;
+        min-height: 80px;
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 900px) {
+    .headerbackground {
+        height: 12vw;
+        min-height: 70px;
+        max-height: 110px;
+        background-size: contain;
+        background-position: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerbackground {
+        height: 10vw;
+        min-height: 60px;
+        max-height: 100px;
+        background-size: contain;
+        background-position: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerbackground {
+        height: 8vw;
+        min-height: 50px;
+        max-height: 80px;
+    }
+}
 
             .side-design {
                 display: none;
