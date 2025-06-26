@@ -35,165 +35,157 @@
             position: relative;
         }
 
-        /* Navigation Bar - Separated from Header */
-        .navigation-bar {
-            background-color: #C23404;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: #F1F1F1;
-            font-size: 18px;
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-
-        .main-nav {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            background-color: #C23404;
-        }
-
-        .main-nav > li {
-            position: relative;
-        }
-
-        .main-nav > li > a {
-            display: block;
-            color: #F1F1F1;
-            text-decoration: none;
-            padding: 8px 20px;
-            text-align: center;
-            font-family: Verdana;
-            font-size: 7pt;
-            font-weight: bold;
-            background-color: #C23404;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .main-nav > li > a:hover {
-            color: #2B2B2B;
-            background-color: #C23404;
-        }
-
-        /* Dropdown Menus */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #2B2B2B;
-            border: 1px solid #2B2B2B;
-            min-width: 200px;
+        /* Hamburger Menu Button */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            background-color: #C23404;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        .main-nav li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #F1F1F1;
+            margin: 4px 0;
+            transition: 0.3s;
         }
 
-        .dropdown li {
+        /* Mobile Navigation Overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            display: none;
+        }
+
+        .nav-overlay.active {
             display: block;
         }
 
-        .dropdown a {
-            display: block;
-            color: #FFFFFF !important;
-            background-color: #C23404 !important;
-            text-align: left;
-            padding: 8px 15px;
-            font-size: 7pt;
-            text-decoration: none;
-            transition: all 0.3s;
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #2B2B2B;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            z-index: 1001;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-header {
+            background-color: #C23404;
+            padding: 20px;
+            color: #F1F1F1;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        .nav-item {
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .dropdown a:hover {
-            color: #2B2B2B !important;
-            background-color: #B1904B !important;
+        .nav-item > a {
+            display: block;
+            color: #F1F1F1;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 8pt;
+            transition: background-color 0.3s;
         }
 
-        /* Side Design Elements */
+        .nav-item > a:hover {
+            background-color: #C23404;
+        }
+
+        .nav-subitems {
+            background-color: rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .nav-subitems.active {
+            display: block;
+        }
+
+        .nav-subitems a {
+            display: block;
+            color: #F1F1F1;
+            padding: 10px 40px;
+            text-decoration: none;
+            font-size: 7pt;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-subitems a:hover {
+            background-color: #C23404;
+        }
+
+        /* Side Design Elements - Vertical Lines */
         .side-design {
             position: fixed;
             right: 0;
             top: 0;
             height: 100vh;
-            width: 60px;
+            width: 80px;
             z-index: 999;
             pointer-events: none;
         }
 
-        .vertical-strip {
+        .vertical-line-1 {
             position: absolute;
             right: 0;
             top: 0;
-            width: 40px;
+            width: 25px;
             height: 100%;
-            background: linear-gradient(180deg, #8B7355 0%, #6B5D42 50%, #5A4D36 100%);
-            border-left: 2px solid #4A3D2A;
+            background-color: #5A4D36;
         }
 
-        .quarter-circle {
+        .vertical-line-2 {
             position: absolute;
-            right: 40px;
-            top: 20%;
-            width: 100px;
-            height: 100px;
-            border-radius: 0 0 0 100px;
-            background: linear-gradient(135deg, #9A8562 0%, #7A6B4F 100%);
-            border: 2px solid #4A3D2A;
-            border-right: none;
-            border-top: none;
-            opacity: 0.8;
+            right: 25px;
+            top: 0;
+            width: 25px;
+            height: 100%;
+            background-color: #6B5D42;
         }
 
-        .quarter-circle-2 {
+        .vertical-line-3 {
             position: absolute;
-            right: 40px;
-            bottom: 30%;
-            width: 80px;
-            height: 80px;
-            border-radius: 0 0 0 80px;
-            background: linear-gradient(135deg, #8B7355 0%, #6B5D42 100%);
-            border: 2px solid #4A3D2A;
-            border-right: none;
-            border-top: none;
-            opacity: 0.6;
+            right: 50px;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #8B7355;
         }
 
         /* Main Background */
         .mainbackground {
             background-color: #756748;
             min-height: 100vh;
-            margin-right: 60px;
+            margin-right: 80px;
         }
 
         /* Content Container */
         .main-content {
-            max-width: 1140px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 20px;
             background-color: #756748;
@@ -420,14 +412,14 @@
         .footerbackground {
             background-color: #756748;
             padding: 20px;
-            margin-right: 60px;
+            margin-right: 80px;
             border-top: 2px solid #4A3D2A;
         }
 
         .footer-content {
             text-align: center;
             color: #000000;
-            max-width: 1140px;
+            max-width: 1120px;
             margin: 0 auto;
         }
 
@@ -449,42 +441,9 @@
                 margin-right: 0;
             }
 
-            .hamburger {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: #2B2B2B;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            }
-
-            .main-nav.active {
-                display: flex;
-            }
-
-            .main-nav > li {
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .main-nav > li > a {
-                text-align: left;
-                padding: 12px 15px;
-            }
-
-            .dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                margin-left: 20px;
-                margin-bottom: 5px;
-                background-color: rgba(255,255,255,0.1);
+            .hamburger-menu {
+                top: 10px;
+                right: 10px;
             }
 
             .sidebar {
@@ -530,8 +489,9 @@
                 margin-bottom: 10px;
             }
 
-            .nav-container {
-                padding: 0 10px;
+            .nav-menu {
+                width: 100%;
+                right: -100%;
             }
         }
 
@@ -560,84 +520,93 @@
     </style>
 </head>
 <body>
-    <!-- Side Design Elements -->
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="nav-overlay" onclick="closeNav()"></div>
+
+    <!-- Navigation Menu -->
+    <div class="nav-menu" id="nav-menu">
+        <div class="nav-header">
+            African Odyssey Menu
+        </div>
+        
+        <div class="nav-item">
+            <a href="index.html">HOME</a>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#" onclick="toggleSubmenu('odyssey-submenu')">ODYSSEY INFO</a>
+            <div class="nav-subitems" id="odyssey-submenu">
+                <a href="what-is-odyssey.html">What is the Odyssey?</a>
+                <a href="crew-profiles.html">Crew Profiles</a>
+                <a href="gps-route.html">The GPS Route</a>
+                <a href="points-to-ponder.html">Points to Ponder</a>
+                <a href="bikes-and-kit.html">Bikes and Kit</a>
+                <a href="possible-routes.html">Possible Routes</a>
+                <a href="dangers-of-africa.html">Dangers of Africa</a>
+                <a href="links.html">Links to sites of interest</a>
+            </div>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#" onclick="toggleSubmenu('chronicles-submenu')">CHRONICLES</a>
+            <div class="nav-subitems" id="chronicles-submenu">
+                <a href="world-premier.html">World Premier</a>
+                <a href="england.html">England</a>
+                <a href="france.html">France</a>
+                <a href="tunisia.html">Tunisia</a>
+                <a href="libya.html">Libya</a>
+                <a href="egypt.html">Egypt</a>
+                <a href="sudan.html">Sudan</a>
+                <a href="ethiopia.html">Ethiopia</a>
+                <a href="kenya.html">Kenya</a>
+                <a href="uganda.html">Uganda</a>
+                <a href="tanzania.html">Tanzania</a>
+                <a href="malawi.html">Malawi</a>
+                <a href="zambia.html">Zambia</a>
+                <a href="botswana.html">Botswana</a>
+                <a href="south-africa.html">South Africa</a>
+                <a href="malaysia.html">Malaysia</a>
+                <a href="new-zealand.html">New Zealand</a>
+            </div>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#" onclick="toggleSubmenu('documentary-submenu')">DOCUMENTARY</a>
+            <div class="nav-subitems" id="documentary-submenu">
+                <a href="in-the-media.html">In the Media</a>
+                <a href="contact.html">Contact</a>
+                <a href="equipment.html">Equipment</a>
+            </div>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#" onclick="toggleSubmenu('crew-submenu')">CREW WRITINGS</a>
+            <div class="nav-subitems" id="crew-submenu">
+                <a href="phill.html">Phill</a>
+                <a href="jerry.html">Jerry</a>
+                <a href="juls.html">Juls</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Design Elements - Three Vertical Lines -->
     <div class="side-design">
-        <div class="vertical-strip"></div>
-        <div class="quarter-circle"></div>
-        <div class="quarter-circle-2"></div>
+        <div class="vertical-line-3"></div>
+        <div class="vertical-line-2"></div>
+        <div class="vertical-line-1"></div>
     </div>
 
     <table width="100%" height="100%">
         <tr class="headerbackground">
             <td width="100%" height="162" valign="top">
                 <!-- Header content (just the image) -->
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <!-- Navigation Bar - Separate from Header -->
-                <div class="navigation-bar">
-                    <div class="nav-container">
-                        <button class="hamburger" onclick="toggleMobileNav()">☰ MENU</button>
-                        
-                        <ul class="main-nav" id="main-nav">
-                            <li>
-                                <a href="index.html">HOME</a>
-                            </li>
-                            <li>
-                                <a href="#">ODYSSEY INFO</a>
-                                <ul class="dropdown">
-                                    <li><a href="what-is-odyssey.html">What is the Odyssey?</a></li>
-                                    <li><a href="crew-profiles.html">Crew Profiles</a></li>
-                                    <li><a href="gps-route.html">The GPS Route</a></li>
-                                    <li><a href="points-to-ponder.html">Points to Ponder</a></li>
-                                    <li><a href="bikes-and-kit.html">Bikes and Kit</a></li>
-                                    <li><a href="possible-routes.html">Possible Routes</a></li>
-                                    <li><a href="dangers-of-africa.html">Dangers of Africa</a></li>
-                                    <li><a href="links.html">Links to sites of interest</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">CHRONICLES</a>
-                                <ul class="dropdown">
-                                    <li><a href="world-premier.html">World Premier</a></li>
-                                    <li><a href="england.html">England</a></li>
-                                    <li><a href="france.html">France</a></li>
-                                    <li><a href="tunisia.html">Tunisia</a></li>
-                                    <li><a href="libya.html">Libya</a></li>
-                                    <li><a href="egypt.html">Egypt</a></li>
-                                    <li><a href="sudan.html">Sudan</a></li>
-                                    <li><a href="ethiopia.html">Ethiopia</a></li>
-                                    <li><a href="kenya.html">Kenya</a></li>
-                                    <li><a href="uganda.html">Uganda</a></li>
-                                    <li><a href="tanzania.html">Tanzania</a></li>
-                                    <li><a href="malawi.html">Malawi</a></li>
-                                    <li><a href="zambia.html">Zambia</a></li>
-                                    <li><a href="botswana.html">Botswana</a></li>
-                                    <li><a href="south-africa.html">South Africa</a></li>
-                                    <li><a href="malaysia.html">Malaysia</a></li>
-                                    <li><a href="new-zealand.html">New Zealand</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">DOCUMENTARY</a>
-                                <ul class="dropdown">
-                                    <li><a href="in-the-media.html">In the Media</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="equipment.html">Equipment</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">CREW WRITINGS</a>
-                                <ul class="dropdown">
-                                    <li><a href="phill.html">Phill</a></li>
-                                    <li><a href="jerry.html">Jerry</a></li>
-                                    <li><a href="juls.html">Juls</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </td>
         </tr>
         <tr class="mainbackground">
@@ -921,35 +890,32 @@
     </table>
 
     <script>
-        function toggleMobileNav() {
-            const nav = document.getElementById('main-nav');
-            nav.classList.toggle('active');
+        function toggleNav() {
+            const navOverlay = document.getElementById('nav-overlay');
+            const navMenu = document.getElementById('nav-menu');
+            
+            navOverlay.classList.toggle('active');
+            navMenu.classList.toggle('active');
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.getElementById('main-nav');
-            const hamburger = document.querySelector('.hamburger');
+        function closeNav() {
+            const navOverlay = document.getElementById('nav-overlay');
+            const navMenu = document.getElementById('nav-menu');
             
-            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-                nav.classList.remove('active');
-            }
-        });
+            navOverlay.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
 
-        // Handle mobile dropdowns
+        function toggleSubmenu(submenuId) {
+            const submenu = document.getElementById(submenuId);
+            submenu.classList.toggle('active');
+        }
+
+        // Close nav when clicking on links
         document.addEventListener('DOMContentLoaded', function() {
-            const dropdownParents = document.querySelectorAll('.main-nav > li > a');
-            
-            dropdownParents.forEach(function(parent) {
-                parent.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const dropdown = parent.nextElementSibling;
-                        if (dropdown && dropdown.classList.contains('dropdown')) {
-                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                        }
-                    }
-                });
+            const navLinks = document.querySelectorAll('.nav-subitems a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeNav);
             });
         });
     </script>
